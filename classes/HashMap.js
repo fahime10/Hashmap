@@ -25,25 +25,46 @@ export class HashMap {
             this.keyMap[index] = [];
         }
         this.keyMap[index].push([key, value]);
+        this.size++;
     }
 
     get(key) {
-        let hashedKey = this.hash(key);
+        let index = this.hash(key);
 
-        if (this.keyMap[hashedKey]) {
-            console.log(this.keyMap[hashedKey]);
+        if (this.keyMap[index]) {
+            return this.keyMap[index][0][1];
         } else {
             return null;
         }
     }
 
     has(key) {
-        let hashedKey = this.hash(key);
+        let index = this.hash(key);
 
-        if (this.keyMap[hashedKey]) {
-            console.log("true");
+        if (this.keyMap[index]) {
+            return true;
         } else {
-            console.log("false");
+            return false;
         }
+    }
+
+    remove(key) {
+        let index = this.hash(key);
+
+        if (this.keyMap[index]) {
+            for (let i = 0; i < this.keyMap[index].length; i++) {
+                if (this.keyMap[index][i][0] === key) {
+                    this.keyMap[index].splice(i, 1);
+                    this.size--;
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    length() {
+        return this.size;
     }
 }
