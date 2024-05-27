@@ -67,4 +67,23 @@ export class HashMap {
     length() {
         return this.size;
     }
+
+    clear() {
+        this.keyMap = new Array(this.keyMap.length);
+        this.size = 0;
+    }
+
+    keys() {
+        const keys = [];
+
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    keys.push(this.keyMap[i][j][0]);
+                }
+            }
+        }
+
+        return "[ " + keys + " ]";
+    }
 }
