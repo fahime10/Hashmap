@@ -15,7 +15,6 @@ export class HashMap {
             hashCode = (primeNumber * hashCode + value) % this.keyMap.length;
         }
     
-        console.log(hashCode);
         return hashCode;
     }
     
@@ -26,6 +25,25 @@ export class HashMap {
             this.keyMap[index] = [];
         }
         this.keyMap[index].push([key, value]);
-        console.log(this.keyMap[index]);
+    }
+
+    get(key) {
+        let hashedKey = this.hash(key);
+
+        if (this.keyMap[hashedKey]) {
+            console.log(this.keyMap[hashedKey]);
+        } else {
+            return null;
+        }
+    }
+
+    has(key) {
+        let hashedKey = this.hash(key);
+
+        if (this.keyMap[hashedKey]) {
+            console.log("true");
+        } else {
+            console.log("false");
+        }
     }
 }
