@@ -16,6 +16,8 @@ hashmap.set("key2", "pierluigi");
 hashmap.set("key3", "giovanni");
 console.log("Length: " + hashmap.length());
 console.log("Keys: " + hashmap.keys());
+console.log("Values: " + hashmap.values());
+console.log("Key Values: " + hashmap.entries());
 
 hashmap.clear();
 console.log("Lenght: " + hashmap.length());

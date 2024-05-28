@@ -86,4 +86,32 @@ export class HashMap {
 
         return "[ " + keys + " ]";
     }
+
+    values() {
+        const values = [];
+
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    values.push(this.keyMap[i][j][1]);
+                }
+            }
+        }
+
+        return "[ " + values + " ]";
+    }
+
+    entries() {
+        const entries = [];
+
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    entries.push(`['${this.keyMap[i][j][0]}', '${this.keyMap[i][j][1]}']`);
+                }
+            }
+        }
+
+        return "[" + entries.join(', ') + "]";
+    }
 }
